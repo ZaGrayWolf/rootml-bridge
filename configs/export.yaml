@@ -1,0 +1,22 @@
+input_files:
+  - synthetic.root
+
+tree: Events
+
+features:
+  - x1
+  - x2
+  - x3
+
+label: label
+
+weight: weight
+
+event_id:
+  - run
+  - lumi
+  - event
+
+selection: null
+
+chunk_size: 10000

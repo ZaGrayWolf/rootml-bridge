@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Data files
+*.root
+*.parquet
+
+# Outputs
+outputs/

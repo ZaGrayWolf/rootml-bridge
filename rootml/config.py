@@ -36,3 +36,9 @@ def load_export_config(path: str) -> ExportConfig:
         selection=data.get("selection"),
         chunk_size=data.get("chunk_size", 100_000),
     )
+    
+def load_train_config(path: str):
+
+    with open(path, "r") as f:
+        return yaml.safe_load(f)
+

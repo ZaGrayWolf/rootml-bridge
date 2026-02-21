@@ -291,13 +291,15 @@ def run_training(data_path, config, out_dir):
 
 ## Performance
 
-Benchmarks on a typical HEP dataset (10M events, 20 features):
+Benchmarks on synthetic datasets with chunked RDataFrame processing:
 
-| Task | Time | Memory |
-|------|------|--------|
-| Export (100k chunks) | ~5 min | ~2 GB |
-| Training (XGBoost) | ~3 min | ~4 GB |
-| Attachment | ~2 min | ~1 GB |
+| Task | Dataset Size | Chunk Size | Notes |
+|------|-------------|------------|-------|
+| Export | ~50k events, 7 features | 10,000 rows | Stable memory usage across chunks |
+| Training (XGBoost) | Same dataset | — | Train/val/test split, AUC logged |
+| Attachment | Same dataset | — | Event-ID matched merge |
+
+Chunked processing keeps memory bounded regardless of file size — chunk_size is configurable in export.yaml.
 
 ## Contributing
 
@@ -311,18 +313,6 @@ Contributions welcome! Areas for improvement:
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## Citation
-
-If you use this tool in your research, please cite:
-
-```bibtex
-@software{rootml_bridge,
-  author = {Singh, Kunwar Abhuday},
-  title = {rootml-bridge: ROOT and ML Integration Toolkit},
-  year = {2026},
-  url = {https://github.com/zagraywolf/rootml-bridge}
-}
-```
 
 ## Contact
 
